@@ -1,0 +1,11 @@
+/* Empty. Add your own CSS if you like */
+/* Always set the map height explicitly to define the size of the div
+     * element that contains the map. */
+     #map {
+       display: block;
+       width: 100%;
+       height: 100%;
+     }
+     .scroll {
+       height: 100%;
+     }
