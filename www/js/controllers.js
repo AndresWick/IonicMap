@@ -2,29 +2,13 @@ angular.module('starter.controllers', [])
 
 .controller('MapCtrl', function($scope, $ionicLoading) {
 
-  $scope.mapCreated = function(map) {
-
-      //   var map = new google.maps.Map(document.getElementById('map'), {
-           zoom: 8,
-           center: {lat: 4.465934, lng: -75.0002451}
-         });
-         // Variable para permitir la Geolocalización.
-         var geocoder = new google.maps.Geocoder();
-
-         document.getElementById('submit').addEventListener('click', function() {
-           geocodeAddress(geocoder, map);
-         });
-         $scope.map = map;
-alert("entra");
-  };
-
-  function geocodeAddress(geocoder, resultsMap) {
+  $scope.geocodeAddress = function(geocoder) {
     var address = document.getElementById('address').value;
     geocoder.geocode({'address': address}, function(results, status) {
       if (status === 'OK') {
         resultsMap.setCenter(results[0].geometry.location);
         var marker = new google.maps.Marker({
-          map: resultsMap,
+          map: document.getElementById('map'),
           position: results[0].geometry.location
         });
       } else {
